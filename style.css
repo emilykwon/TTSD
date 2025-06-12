@@ -1,0 +1,398 @@
+/* style.css */
+
+/* 로컬 폰트 정의 (myfont.woff 사용 시) */
+@font-face {
+    font-family: 'MyCustomFont'; /* CSS에서 사용할 폰트 이름 */
+    src: url('myfont.woff') format('woff'); /* 폰트 파일 경로 - myfont.woff 파일이 style.css와 같은 폴더에 있어야 합니다. */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'MyCustomFont', sans-serif; /* 전체 폰트 적용 */
+    background-color: #000;
+    color: red;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- 화면 전체 크기 및 중앙 정렬 제어 --- */
+.page-wrapper {
+    width: 100%;
+    max-width: 1600px;
+    min-height: 100vh;
+    background-color: #000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 80px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+/* --- 시작 페이지 스타일 (index.html) --- */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+.large-trash-can {
+    width: 20vw;
+    max-width: 180px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.large-trash-can:hover {
+    transform: scale(1.05);
+}
+
+.landing-header-text {
+    font-size: 48px;
+    color: red;
+    margin-bottom: 0px;
+    margin-top: 0;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+.landing-instruction {
+    font-size: 18px;
+    color: red;
+    margin-top: 20px;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+/* --- 공통 헤더 및 '돌아가기' 텍스트 링크 스타일 --- */
+.main-header {
+    width: 100%;
+    padding: 20px 2%;
+    box-sizing: border-box;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-header h1 {
+    color: red;
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 0;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+.header-line {
+    width: 100%;
+    height: 1px;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.back-to-home-text-link {
+    color: red;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 2%;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+.back-to-home-text-link:hover {
+    color: darkred;
+}
+
+
+/* --- 메인 페이지 (main_page.html) 및 의견 보기 페이지 (view_opinions.html) 공통 컨테이너 스타일 --- */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 80px; /* 기존 margin-top 유지 */
+    padding-top: 100px; /* 상단 바 아래로 내용을 내리기 위해 추가 */
+    min-height: calc(100vh - 80px - 80px);
+}
+
+.main-question {
+    font-size: 48px;
+    color: red;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+.sub-text {
+    font-size: 20px;
+    color: red;
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 100px; /* 쓰레기통 위 텍스트와의 간격 조정 */
+}
+
+#opinionInput {
+    flex-grow: 1;
+    height: 50px;
+    min-height: 40px;
+    padding: 10px 0 5px 0;
+    border: none;
+    border-bottom: 1px solid red;
+    background-color: transparent;
+    color: red;
+    font-size: 18px;
+    border-radius: 0;
+    resize: none;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+#opinionInput::placeholder {
+    color: rgba(255, 0, 0, 0.7);
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+#opinionInput:focus {
+    outline: none;
+    border-bottom: 2px solid red;
+}
+
+.discard-button {
+    background-color: red;
+    color: white;
+    padding: 8px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    min-width: 120px;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+.discard-button:hover {
+    background-color: darkred;
+}
+
+/* 쓰레기통이 사라진 문제 해결 및 상시 보이도록 설정 */
+.trash-container-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px; /* 입력 필드 영역과 쓰레기통 사이의 간격 조정 */
+    box-sizing: border-box;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.trash-container-wrapper.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.trash-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trash-can {
+    width: 8vw;
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.discarded-opinions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    pointer-events: none;
+}
+
+.discarded-item {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: red;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    width: fit-content;
+    max-width: 80%;
+    animation: popIn 0.5s ease-out;
+    cursor: pointer;
+    pointer-events: auto;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+.discarded-item:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.instruction-text {
+    font-size: 14px;
+    color: red;
+    position: relative; /* absolute 대신 relative로 변경하여 margin-top 적용 용이하게 함 */
+    margin-top: 50px; /* 쓰레기통 아래 텍스트와의 간격 조정 */
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-family: 'MyCustomFont', sans-serif;
+    bottom: unset; /* 이전 absolute 속성 제거 */
+}
+
+/* view_opinions.html 페이지에 적용될 스타일 */
+.view-opinions-container {
+    margin-top: 100px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px; /* 상단 바 아래로 내용을 내리기 위해 추가 */
+}
+
+.view-opinions-container h2 {
+    font-size: 36px;
+    color: red;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+.opinion-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+}
+
+.opinion-list-item {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: red;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+.opinion-list-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+/* 버튼 그룹 스타일 */
+.button-group {
+    display: flex;
+    gap: 20px; /* 버튼들 사이 간격 */
+    margin-top: 50px;
+}
+
+.back-button {
+    background-color: #555;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-family: 'MyCustomFont', sans-serif;
+}
+.back-button:hover {
+    background-color: #777;
+}
+
+/* 새로 추가된 '모두 비우기' 버튼 스타일 */
+.clear-button {
+    background-color: darkred; /* 빨간색 계열 */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-family: 'MyCustomFont', sans-serif;
+}
+.clear-button:hover {
+    background-color: #ff0000; /* 좀 더 밝은 빨강 */
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
